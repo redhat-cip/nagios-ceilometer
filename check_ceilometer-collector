@@ -29,7 +29,7 @@ STATE_UNKNOWN=3
 STATE_DEPENDENT=4
 
 
-PID=$(ps -ef | grep ceilometer-collector | awk '{print $2}' | head -n 1)
+PID=$(pidof -x ceilometer-collector)
 
 if ! KEY=$(netstat -epta 2>/dev/null | grep $PID | grep amqp)
 then
